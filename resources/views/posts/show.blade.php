@@ -32,6 +32,11 @@
             {!! Form::close() !!}
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-12">
+            {{ Html::linkRoute('posts.index', '<< All Posts', [], ['class' => 'btn btn-outline-secondary btn-block btn-h1-spacing']) }}
+          </div>
+        </div>
       </div>
     </div>
   </div>

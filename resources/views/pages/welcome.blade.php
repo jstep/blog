@@ -8,36 +8,24 @@
       <div class="jumbotron">
         <h1 class="display-4">James' Blog</h1>
         <p class="lead">Thanks for visiting. This is a test site built with Laravel.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Popular Posts</a>
+        {{ Html::linkRoute('posts.index', 'Popular Posts', [], ['class' => 'btn btn-primary btn-lg']) }}
       </div>
     </div>
   </div> <!-- end of header .row-->
   <div class="row">
     <div class="col-md-8">
       
-      <div class="post">
-        <h3>Post heading</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
-        <a href="#" class="btn btn-primary">Read more</a>
-        </p>
-      </div>
-      <hr>
+      @foreach($posts as $post)
       
-      <div class="post">
-        <h3>Post heading</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
-        <a href="#" class="btn btn-primary">Read more</a>
-        </p>
-      </div>
-      <hr>
+        <div class="post">
+          <h3>{{ $post->title }}</h3>
+          <p>{{ substr($post->body, 0, 300) }}{{ strlen($post->body) > 300 ? "..." : "" }}</p>
+          <a href="#" class="btn btn-primary">Read more</a>
+        </div>
+        <hr>
       
-      <div class="post">
-        <h3>Post heading</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
-        <a href="#" class="btn btn-primary">Read more</a>
-        </p>
-      </div>
-      <hr>
+      @endforeach
+      
     </div>
     
     <div class="col-md-3 col-md-offset-1">

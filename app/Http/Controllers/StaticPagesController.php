@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+
 class StaticPagesController extends Controller {
   
   public function getIndex() {
-    return view('pages.welcome');
+    $posts = Post::orderBy('created_at','desc')->take(5)->get();
+    return view('pages.welcome')->withPosts($posts);
   }
   
   public function getAbout() {
