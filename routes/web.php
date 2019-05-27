@@ -16,3 +16,5 @@ Route::get('contact', 'StaticPagesController@getContact');
 Route::get('about', 'StaticPagesController@getAbout');
 
 Route::get('/', 'StaticPagesController@getIndex');
+
+Route::resource('posts', 'PostController');
