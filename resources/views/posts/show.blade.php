@@ -13,13 +13,18 @@
     <div class="col-md-4">
       <div class="card card-body bg-light">
         <dl class="dl-horizontal">
-          <dt>Created at:</dt>
-          <dt>{{ date('l M j, Y g:ia', strtotime($post->created_at)) }}</dt>
+          <span class="badge badge-info">URL</span>
+          <p>{{ url($post->slug) }}</p>
         </dl>
         
         <dl class="dl-horizontal">
-          <dt>Last updated:</dt>
-          <dt>{{ date('l M j, Y g:ia', strtotime($post->created_at)) }}</dt>
+          <span class="badge badge-info">Created</span>
+          <p>{{ date('l M j, Y g:ia', strtotime($post->created_at)) }}</p>
+        </dl>
+        
+        <dl class="dl-horizontal">
+          <span class="badge badge-info">Last updated</span>
+          <p>{{ date('l M j, Y g:ia', strtotime($post->created_at)) }}</p>
         </dl>
         <hr>
         <div class="row">

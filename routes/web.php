@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('contact', 'StaticPagesController@getContact');
-
-Route::get('about', 'StaticPagesController@getAbout');
-
-Route::get('/', 'StaticPagesController@getIndex');
-
-Route::resource('posts', 'PostController');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogContorller@getSingle']);
+    Route::get('contact', 'StaticPagesController@getContact');
+    Route::get('about', 'StaticPagesController@getAbout');
+    Route::get('/', 'StaticPagesController@getIndex');
+    Route::resource('posts', 'PostController');
+});
