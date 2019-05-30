@@ -14,7 +14,7 @@
       <div class="card card-body bg-light">
         <dl class="dl-horizontal">
           <span class="badge badge-info">URL</span>
-          <p>{{ url($post->slug) }}</p>
+          <p><a href="{{ route('blog.single', $post->slug) }}">{{ route('blog.single', $post->slug) }}</a></p>
         </dl>
         
         <dl class="dl-horizontal">
